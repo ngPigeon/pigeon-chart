@@ -35,32 +35,32 @@ In order to display data in different chart forms on your choice, you are requir
 # Chart Display
 The data will be displayed in chart form with different query and chart type stated. 
 <br />
-###1. Basic Query 
+### 1. Basic Query 
 ![basic query pie](https://user-images.githubusercontent.com/26452088/36462456-86fa27bc-16fe-11e8-8142-dc385a0d7c69.PNG)
 <br />
-####Pie
+#### Pie
 ![pie ss](https://user-images.githubusercontent.com/26452088/36462406-206abd18-16fe-11e8-93f4-e70a790fe4ea.PNG)
 <br />
 
-####Column
+#### Column
 ![basic query column](https://user-images.githubusercontent.com/26452088/36462479-ae00ab4c-16fe-11e8-9afb-ca034c0c37be.PNG)
 <br />
 
-###2. Query with aggregated function
+### 2. Query with aggregated function
 ![aggregated function query column](https://user-images.githubusercontent.com/26452088/36462412-32a0d08a-16fe-11e8-960c-1a26d99917a3.PNG)
 <br />
-####Column
+#### Column
 ![aggregated function query column ss](https://user-images.githubusercontent.com/26452088/36462526-f88b9ca8-16fe-11e8-9579-d01ce7596691.PNG)
 <br />
 
-####Bar
+#### Bar
 ![aggregated function query bar ss](https://user-images.githubusercontent.com/26452088/36462544-16685ce8-16ff-11e8-829b-bc3693d7aa7d.PNG)
 <br />
 
-###3. Multi-series
+### 3. Multi-series
 ![multi-series line query](https://user-images.githubusercontent.com/26452088/36462604-57111e6a-16ff-11e8-8f6c-d770a3d3f595.PNG)
 <br />
 
-####Line
+#### Line
 ![multi-series line ss](https://user-images.githubusercontent.com/26452088/36462626-7e924fe0-16ff-11e8-86cb-9661dcbc6739.PNG)
 

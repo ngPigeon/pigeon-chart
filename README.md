@@ -7,21 +7,21 @@ A dynamic tool to display mysql results in chart form in complement to Highchart
  
 Make sure you include Pigeon Core, Pigeon Chart, jQuery, AngularJS, Underscore, Highcharts and Highcharts related JavaScript files under head tag of your project. Take note of the sequences of the files you have included. jQuery, AngularJS, Highcharts and Underscore must be loaded before Pigeon Chart JavaScript.
 <br />
-![css and js links](https://user-images.githubusercontent.com/26452088/36462256-41d68618-16fd-11e8-86ca-ffb36ba38cca.PNG)
+![js links](https://user-images.githubusercontent.com/26452088/36462256-41d68618-16fd-11e8-86ca-ffb36ba38cca.PNG)
   
-If your website is running on PHP, you can just insert the "includes.php" file into your PHP project instead of insert CSS and JS file one by one. "includes.php" file is located under "pigeon-chart/php" folder.
+If your website is running on PHP, you can just insert the "includes.php" file into your PHP project instead of insert JS file one by one. "includes.php" file is located under "pigeon-chart/php" folder.
 <br />
 ![php includes](https://user-images.githubusercontent.com/26452088/36462215-0c30014c-16fd-11e8-8940-c579dd9ae60d.PNG)
 
 *Note: For having a best experience with our framework, the versions of AngularJS, Highcharts and Underscore frameworks that we are currently using are as follows:
 <br />
-AngularJs v1.6.4
+-AngularJs v1.6.4
 <br />
-Underscore v1.8.3
+-Underscore v1.8.3
 <br />
-Highcharts v6.0.1
+-Highcharts v6.0.1
 <br />
-grouped-categories (Highcharts related) v1.1.2
+-grouped-categories (Highcharts related) v1.1.2
 
 Configure your MySQL hostname, username, password and the database in the "pigeon-chart/configdb.php". This PHP must be configured properly in order to communicate with MySQL server.
 <br />

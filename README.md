@@ -3,7 +3,6 @@ A dynamic tool to display mysql results in chart form in complement to Highchart
 
 # Basic Setup
 1. Copy this tool into your project root directory then inject our module name *data-ng-app="pigeon-chart"* under HTML tag.
-<br />
 ![module name](https://user-images.githubusercontent.com/26452088/36463226-7695f2ac-1703-11e8-8f79-b199da55aa2f.PNG)
  
 Make sure you include Pigeon Core, Pigeon Chart, AngularJS, Underscore, Highcharts and Highcharts related JavaScript files under head tag of your project. Take note of the sequences of the files you have included. jQuery, AngularJS, Highcharts and Underscore must be loaded before Pigeon Chart JavaScript.

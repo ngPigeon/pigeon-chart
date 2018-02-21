@@ -2,11 +2,12 @@
 
 echo "
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-    <link href='pigeon-table/css/bootstrap.min.css' rel='stylesheet' />
-    <script src='pigeon-table/js/jquery.min.js'></script>
-    <script src='pigeon-table/js/bootstrap.min.js'></script>
-    <script src='pigeon-table/js/angular.min.1.6.4.js'></script>
-    <script src='pigeon-table/js/angular-cookies.min.js'></script>
-    <script src='pigeon-table/js/pigeon-chart.js'></script>";
+    <script src='pigeon-chart/js/angular.min.1.6.4.js'></script>
+	<script src='pigeon-chart/js/underscore-min.js'></script>
+	<script src='https://code.highcharts.com/highcharts.js'></script>
+	<script src='https://code.highcharts.com/modules/series-label.js'></script>
+	<script src='https://code.highcharts.com/modules/exporting.js'></script>
+	<script src='pigeon-chart/js/grouped-categories.js'></script>
+    <script src='pigeon-chart/js/pigeon-chart.js'></script>";
 
 ?>

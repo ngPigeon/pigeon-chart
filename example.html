@@ -1,33 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="pigeon-table" data-ng-cloak>
+<html lang="en" data-ng-app="pigeon-chart" data-ng-cloak>
 <head>
     <title>Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Bootstrap -->
-    <link href="pigeon-table/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Pigeon Table -->
-    <link href="pigeon-table/css/pigeon-table.css" rel="stylesheet" />
 </head>  
 <body>
     
-    <div class="container">
-        
-        <!-- View Data in table form -->
-        <!--<pigeon-table query="SELECT type, COUNT(type) as 'Total User' FROM user_account GROUP BY type" editable="true"></pigeon-table>-->
-        <pigeon-table query="SELECT * FROM test" editable="true"></pigeon-table>
-        
-    </div>
-    
-    <!-- jQuery – required for Bootstrap's JavaScript plugins) -->
-    <script src="pigeon-table/js/jquery.min.js"></script>
-    <!-- All Bootstrap plug-ins file -->
-    <script src="pigeon-table/js/bootstrap.min.js"></script>
-    <!-- AngularJS -->
-    <script src="pigeon-table/js/angular.min.1.6.4.js"></script>
-    <!-- AngularJS Cookie -->
-    <script src="pigeon-table/js/angular-cookies.min.js"></script>
-    <!-- Pigeon Table -->
-    <script src="pigeon-table/js/pigeon-table.js"></script> 
-    
+    <div>
+		<!--View data in chart form-->
+        <pigeon-chart query="SELECT tdate, open, high, low, close FROM quotes WHERE stock = 'DiGi Bhd' LIMIT 20" title="Stock Quotes For DiGi" subtitle="Comparison between open, high, low and close price" type="line" axisy-title="Stock Quotes" axisx-title="Date" data-data-label="false">Placeholder for generic chart</pigeon-chart> 
+	</div>		
+
+    <script src='pigeon-chart/js/angular.min.1.6.4.js'></script>
+	<script src='pigeon-chart/js/underscore-min.js'></script>
+	<script src='https://code.highcharts.com/highcharts.js'></script>
+	<script src='https://code.highcharts.com/modules/series-label.js'></script>
+	<script src='https://code.highcharts.com/modules/exporting.js'></script>
+	<script src='pigeon-chart/js/grouped-categories.js'></script>
+    <script src='pigeon-chart/js/pigeon-chart.js'></script>
 </body>
 </html>

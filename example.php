@@ -12,11 +12,11 @@
 </head> 
 
 <body>
-    
-    <div class="container">
-        <pigeon-chart query="SELECT * FROM student"></pigeon-chart>
-    </div>
-    
+    <div id="axis">
+	</div>
+    <div>
+        <pigeon-chart query="SELECT tdate, open, high, low, close FROM quotes WHERE stock = 'DiGi Bhd' LIMIT 20" title="Stock Quotes For DiGi" subtitle="Comparison between open, high, low and close price" type="line" axisy-title="Stock Quotes" axisx-title="Date" data-data-label="false">Placeholder for generic chart</pigeon-chart>
+    </div>    
 </body>
 </html>
 

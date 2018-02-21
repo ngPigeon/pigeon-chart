@@ -2,11 +2,10 @@
 A dynamic tool to display mysql results in chart form in complement to Highcharts framework
 
 # Basic Setup
-1. Copy this tool into your project root directory then inject our module name *data-ng-app="pigeon-chart"* under <html> tag.
-<br />
+1. Copy this tool into your project root directory then inject our module name *data-ng-app="pigeon-chart"* under HTML tag.
 ![module name](https://user-images.githubusercontent.com/26452088/36462739-30af1e60-1700-11e8-87d1-ccd8875ab33e.PNG)
  
-Make sure you include Pigeon Core, Pigeon Chart, jQuery, AngularJS, Underscore, Highcharts and Highcharts related JavaScript files under <head> tag of your project. Take note of the sequences of the files you have included. jQuery, AngularJS, Highcharts and Underscore must be loaded before Pigeon Chart JavaScript.
+Make sure you include Pigeon Core, Pigeon Chart, jQuery, AngularJS, Underscore, Highcharts and Highcharts related JavaScript files under head tag of your project. Take note of the sequences of the files you have included. jQuery, AngularJS, Highcharts and Underscore must be loaded before Pigeon Chart JavaScript.
 <br />
 ![css and js links](https://user-images.githubusercontent.com/26452088/36462256-41d68618-16fd-11e8-86ca-ffb36ba38cca.PNG)
   
@@ -28,7 +27,7 @@ Configure your MySQL hostname, username, password and the database in the "pigeo
 <br />
 ![configure db](https://user-images.githubusercontent.com/26452088/36461630-8e54c350-16f9-11e8-8111-1c93bd458914.PNG)
 
-# Include pigeon-chart <html> tag
+# Include pigeon-chart HTML tag
 In order to display data in different chart forms on your choice, you are required to insert the MySQL query command to retrieve the data from mySQL database. Pigeon chart supports basic query, aggregate function with grouping query and multi-series chart. State the title, subtitle, y-axis and x-axis titles for your chart. Pigeon chart supports basic chart types: Line, Column, Bar and Pie. By changing the value of type attribute, your webpage will then display the chart type that you have specified. You may choose to show or not to show all data with values labelled by alternating between "true" and "false".
 ![pigeon html tag](https://user-images.githubusercontent.com/26452088/36461979-abbd8cd6-16fb-11e8-97f8-f1abd2141898.PNG)
 

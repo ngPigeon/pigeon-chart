@@ -1,5 +1,5 @@
 # pigeon-chart
-A dynamic tool to display mysql results in chart form in complement to Highcharts framework
+A dynamic tool to display mysql results in chart form in complement to Highcharts framework.
 
 # Basic Setup
 1. Copy this tool into your project root directory then inject our module name *data-ng-app="pigeon-chart"* under HTML tag.
@@ -30,7 +30,8 @@ In order to display data in different chart forms on your choice, you are requir
 ![pigeon html tag](https://user-images.githubusercontent.com/26452088/36461979-abbd8cd6-16fb-11e8-97f8-f1abd2141898.PNG)
 
 # Chart Display
-The data will be displayed in chart form with different query and chart type stated. 
+The data will be displayed in chart form with different query and chart type stated. Pigeon Chart also supports displaying multiple charts in one page.
+
 <br />
 ### 1. Basic Query 
 ![basic query pie](https://user-images.githubusercontent.com/26452088/36462456-86fa27bc-16fe-11e8-8142-dc385a0d7c69.PNG)

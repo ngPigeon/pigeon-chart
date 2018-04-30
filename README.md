@@ -31,7 +31,6 @@ In order to display data in different chart forms on your choice, you are requir
 
 # Chart Display
 The data will be displayed in chart form with different query and chart type stated. Pigeon Chart also supports displaying multiple charts in one page.
-
 <br />
 ### 1. Basic Query 
 ![basic query pie](https://user-images.githubusercontent.com/26452088/36462456-86fa27bc-16fe-11e8-8142-dc385a0d7c69.PNG)

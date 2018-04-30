@@ -21,7 +21,7 @@ If your website is running on PHP, you can just insert the "includes.php" file i
 <br />
 -grouped-categories (Highcharts related) v1.1.2
 
-Configure your MySQL hostname, username, password and the database in the "pigeon-chart/configdb.php". This PHP must be configured properly in order to communicate with MySQL server.
+Configure your MySQL hostname, username, password and the database in the "pigeon-core/configdb.php". This PHP must be configured properly in order to communicate with MySQL server.
 <br />
 ![configure db](https://user-images.githubusercontent.com/26452088/36461630-8e54c350-16f9-11e8-8111-1c93bd458914.PNG)
 

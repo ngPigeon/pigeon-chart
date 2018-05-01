@@ -155,11 +155,11 @@ app.controller("pigeonChart", function ($scope, $http) {
 
         if (charttype === "pie") {
 
-            piedata = [];
+            var piedata = [];
 
             for (x in source) {
                 //return an array of each object's values
-                allvalues = Object.values(source[x])
+                var allvalues = Object.values(source[x])
                 piedata.push(allvalues);
             }
 

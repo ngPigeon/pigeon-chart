@@ -118,11 +118,16 @@ app.controller("pigeonChart", function ($scope, $http) {
     };
 
     $scope.transform_column_as_category = function (source, query) {
-        var categorykey = query.split("BY")[1].replace(/ +/g, "");
-        var order = categorykey.split(",");
+		var order = $scope.getGroupByArr(query);
         var groups = $scope.nestedGroup(source, order);
         return groups;
     };
+
+	$scope.getGroupByArr = function (query){
+		var categorykey = query.split("BY")[1].replace(/ +/g, "");
+        var order = categorykey.split(",");
+		return order;
+	}
 
     //recursive call for creating nested arrays
     $scope.nestedGroup = function (list, order) {
@@ -201,8 +206,8 @@ app.controller("pigeonChart", function ($scope, $http) {
                     }
                 }
 
-                categoryArr = allseries[0].data;
-                seriesArr = allseries.slice(1);
+                categoryArr = $scope.transform_column_as_category(source, query);
+                seriesArr = allseries.slice($scope.getGroupByArr(query).length);
             }
 
             //category contains value for x-axis (category), and series contains an array of series based on number of column generated - first column

@@ -17,7 +17,8 @@ app.directive("pigeonChart", function ($parse, $http) {
 		type: "@",
 		axisyTitle: "@",
 		axisxTitle: "@",
-		dataLabel: "=dataLabel"
+		dataLabel: "=dataLabel",
+		showLegend: "=showLegend"
 	};
 
     direc.controller = "pigeonChart";
@@ -93,6 +94,7 @@ app.controller("pigeonChart", function ($scope, $http) {
                         },
 
                         legend: {
+							enabled: $scope.showLegend,
                             layout: 'vertical',
                             align: 'right',
                             verticalAlign: 'top',
@@ -171,16 +173,17 @@ app.controller("pigeonChart", function ($scope, $http) {
             var seriesArr = [];
             var lastcol = [];
 
-            if (querystr.includes("group by")) {
+/*            if (querystr.includes("group by")) {
                 categoryArr = $scope.transform_column_as_category(source, query);
-
+				console.log(categoryArr);
                 var length = Object.keys(source[0]).length;
                 for (x in source) {
                     var lastcolvalue = source[x][Object.keys(source[x])[Object.keys(source[x]).length - 1]];
                     lastcol.push(lastcolvalue);
                 }
                 seriesArr = [{'type':charttype, data: lastcol}];
-            } else {
+            } else {*/
+
                 var allseries = [];
 
                 //Obtaining all keys from the first row (table columns' name from sql).
@@ -204,7 +207,7 @@ app.controller("pigeonChart", function ($scope, $http) {
 
             //category contains value for x-axis (category), and series contains an array of series based on number of column generated - first column
             return {category: categoryArr, series: seriesArr};
-        }
+//        }
     };
 
 });

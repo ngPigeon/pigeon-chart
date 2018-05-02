@@ -169,7 +169,7 @@ app.controller("pigeonChart", function ($scope, $http) {
                 var allvalues = Object.values(source[x])
                 piedata.push(allvalues);
             }
-
+			console.log(title);
             return {series: [{type: charttype, name: title, data: piedata}]};
 
         } else {
@@ -206,8 +206,16 @@ app.controller("pigeonChart", function ($scope, $http) {
                     }
                 }
 
-                categoryArr = $scope.transform_column_as_category(source, query);
+/*                categoryArr = $scope.transform_column_as_category(source, query);
                 seriesArr = allseries.slice($scope.getGroupByArr(query).length);
+				console.log(categoryArr, seriesArr);*/
+				if(querystr.includes("group by")){
+                	categoryArr = $scope.transform_column_as_category(source, query);
+					seriesArr = allseries.slice($scope.getGroupByArr(query).length);
+				}else{
+					categoryArr = allseries[0].data;
+					seriesArr = allseries.slice(1);
+				}
             }
 
             //category contains value for x-axis (category), and series contains an array of series based on number of column generated - first column

@@ -29,11 +29,17 @@ Configure your MySQL hostname, username, password and the database in the "pigeo
 In order to display data in different chart forms whereby on your choice, Pigeon Chart supports 6 chart types: Line, Pie, Column, Bar, Area and Spline. You are required to insert the MySQL query command to retrieve the data from mySQL database. Pigeon chart supports data visualization with 6 different SQL patterns as shown below.
 <br />
 SQL Patterns
+<br />
 -SELECT [x-axis], [y-axis] FROM <table>;
+<br />
 -SELECT [x-axis], [y-axis-series-1], [y-axis-series-2], [y-axis-series-3] … FROM <table>;
+<br />
 -SELECT [x-axis], AGG_FUNC([y-axis]) FROM <table> GROUP BY [x-axis];
+<br />
 -SELECT [series], value (agg/non agg) FROM <table>;
+<br />
 -SELECT [x-axis], AGG_FUNC([y-axis-series-1]), AGG_FUNC([y-axis-series-2]), …    FROM <table> GROUP BY [x-axis];
+<br />
 -SELECT [x-axis-1], [x-axis-2],… , AGG_FUNC([y-axis-series-1]), AGG_FUNC([y-axis-series-2]), … FROM <table> GROUP BY [x-axis-1], [x-axis-2],…;
 
 <table>

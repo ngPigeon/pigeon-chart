@@ -15,10 +15,11 @@ app.directive("pigeonChart", function ($parse, $http) {
 		title: "@",
 		subtitle: "@",
 		type: "@",
-		axisyTitle: "@",
-		axisxTitle: "@",
-		dataLabel: "=dataLabel",
-		showLegend: "=showLegend"
+		axisYTitle: "@",
+		axisXTitle: "@",
+		showDataLabel: "=showDataLabel",
+		showLegend: "@",
+		zoomType: "@"
 	};
 
     direc.controller = "pigeonChart";
@@ -50,8 +51,28 @@ app.controller("pigeonChart", function ($scope, $http) {
                 .then(function (response) {
                     $scope.data = response.data.data;
                     var transformeddata = $scope.transform_column_as_series($scope.data, $scope.axisyTitle, $scope.type, $scope.query);
+					var enableLegend = true;
+					var verticalAlign = "middle";
+					var legendLayout = "vertical";
+
+					if($scope.showLegend !== undefined) {
+						if($scope.showLegend !== "false"){
+							if($scope.showLegend === "top" || $scope.showLegend === "bottom"){
+								verticalAlign = $scope.showLegend;
+								$scope.showLegend = "center";
+								legendLayout = "horizontal";
+							}
+						}else{
+							enableLegend = false;
+						}
+					}else{
+						$scope.showLegend = "right";
+					}
 
                         Highcharts.chart($scope.chartId, {
+							chart: {
+								zoomType: $scope.zoomType
+							},
                             title: {
                                 text: $scope.title
                             },
@@ -61,14 +82,14 @@ app.controller("pigeonChart", function ($scope, $http) {
 
                             xAxis: {
                                 title: {
-                                    text: $scope.axisxTitle
+                                    text: $scope.axisXTitle
                                 },
                                 categories: transformeddata.category
                             },
 
                             yAxis: {
                                 title: {
-                                    text: $scope.axisyTitle
+                                    text: $scope.axisYTitle
                                 }
                             },
 
@@ -87,20 +108,17 @@ app.controller("pigeonChart", function ($scope, $http) {
                             series: {
                                 borderWidth: 0,
                                 dataLabels: {
-                                    enabled: $scope.dataLabel,
+                                    enabled: $scope.showDataLabel,
                                     format: '{point.y}'
                                 }
                             }
                         },
 
                         legend: {
-							enabled: $scope.showLegend,
-                            layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'top',
-                            x: -40,
-                            y: 20,
-                            floating: true,
+                            layout: legendLayout,
+                            align: $scope.showLegend,
+                            verticalAlign: verticalAlign,
+							enabled: enableLegend,
                             borderWidth: 1,
                             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
                             shadow: true
@@ -147,7 +165,7 @@ app.controller("pigeonChart", function ($scope, $http) {
 
     $scope.checkifEmpty = function (group, order) {
         if (_.isEmpty(group.categories) ) {
-                //remove "categories" property if it's empty
+             //remove "categories" property if it's empty
              return _.omit(group, 'categories');
         } else {
             if (_.rest(order) == _.last(order)) {
@@ -169,7 +187,7 @@ app.controller("pigeonChart", function ($scope, $http) {
                 var allvalues = Object.values(source[x])
                 piedata.push(allvalues);
             }
-			console.log(title);
+
             return {series: [{type: charttype, name: title, data: piedata}]};
 
         } else {
@@ -177,50 +195,34 @@ app.controller("pigeonChart", function ($scope, $http) {
             var categoryArr = [];
             var seriesArr = [];
             var lastcol = [];
+			var allseries = [];
 
-/*            if (querystr.includes("group by")) {
-                categoryArr = $scope.transform_column_as_category(source, query);
-				console.log(categoryArr);
-                var length = Object.keys(source[0]).length;
-                for (x in source) {
-                    var lastcolvalue = source[x][Object.keys(source[x])[Object.keys(source[x]).length - 1]];
-                    lastcol.push(lastcolvalue);
-                }
-                seriesArr = [{'type':charttype, data: lastcol}];
-            } else {*/
+			//Obtaining all keys from the first row (table columns' name from sql).
+			var allkeys = Object.keys(source[0])
 
-                var allseries = [];
+			//Pushing n JSON object to allseries array based on number of column generated
+			for(var i = 0; i < allkeys.length; i++){
+				allseries.push({'type':charttype, 'name': allkeys[i], 'data':[]});
+			}
 
-                //Obtaining all keys from the first row (table columns' name from sql).
-                var allkeys = Object.keys(source[0])
-
-                //Pushing n JSON object to allseries array based on number of column generated
-                for(var i = 0; i < allkeys.length; i++){
-                    allseries.push({'type':charttype, 'name': allkeys[i], 'data':[]});
-                }
-
-                //for each row, push the value into each JSON object's data based on number of column generated.
-                for (var x in source){
-                    for (var i = 0; i < allkeys.length; i++) {
-                        allseries[i]['data'].push(source[x][allkeys[i]]);
-                    }
-                }
-
-/*                categoryArr = $scope.transform_column_as_category(source, query);
-                seriesArr = allseries.slice($scope.getGroupByArr(query).length);
-				console.log(categoryArr, seriesArr);*/
-				if(querystr.includes("group by")){
-                	categoryArr = $scope.transform_column_as_category(source, query);
-					seriesArr = allseries.slice($scope.getGroupByArr(query).length);
-				}else{
-					categoryArr = allseries[0].data;
-					seriesArr = allseries.slice(1);
+			//for each row, push the value into each JSON object's data based on number of column generated.
+			for (var x in source){
+				for (var i = 0; i < allkeys.length; i++) {
+					allseries[i]['data'].push(source[x][allkeys[i]]);
 				}
-            }
+			}
+
+			if(querystr.includes("group by")){
+				categoryArr = $scope.transform_column_as_category(source, query);
+				seriesArr = allseries.slice($scope.getGroupByArr(query).length);
+			}else{
+				categoryArr = allseries[0].data;
+				seriesArr = allseries.slice(1);
+			}
+		}
 
             //category contains value for x-axis (category), and series contains an array of series based on number of column generated - first column
             return {category: categoryArr, series: seriesArr};
-//        }
     };
 
 });

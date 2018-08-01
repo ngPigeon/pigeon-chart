@@ -16,9 +16,48 @@
 	</div>
     <div>
 		<!--Support multiple charts-->
-        <pigeon-chart query="SELECT relyear, RATINGCODE, min(runtime), avg(runtime), max(runtime) FROM movie WHERE relyear = 1967 GROUP BY relyear, RATINGCODE" title="Stock Quotes For DiGi" subtitle="Comparison between open, high, low and close price" type="column" axisy-title="Stock Quotes" axisx-title="Date" data-data-label="false" show-legend="true">Placeholder for generic chart</pigeon-chart>
-<!--        <pigeon-chart query="SELECT school, COUNT(school) AS Total FROM student GROUP BY school" title="Students from Swinburne, UCTS and Sunway Group By Gender" subtitle="BICT and CS Students" type="column" axisy-title="Count" axisx-title="Gender" data-data-label="false" show-legend="true">Placeholder for generic chart</pigeon-chart>
-        <pigeon-chart query="SELECT name, val FROM web_marketing" title="Web Marketing" subtitle="" type="bar" axisy-title="Value" axisx-title="Category" data-data-label="false" show-legend="false">Placeholder for generic chart</pigeon-chart>-->
+		<pigeon-chart query="SELECT relyear, tmdb_score FROM movie ORDER BY relyear LIMIT 20"
+			  title="Top 10 Movies with Highest TMDB Score"
+			  subtitle="Year 1953 to Year 2016"
+			  type="spline"
+			  axisy-title="TMDB Score"
+			  show-legend="bottom"
+			  show-data-label="true"
+			  zoom-type="xy">Placeholder for generic chart</pigeon-chart>
+
+        <pigeon-chart query="SELECT relyear, RATINGCODE, min(runtime), avg(runtime), max(runtime)
+							 FROM movie
+							 WHERE relyear = 1967
+							 GROUP BY relyear, RATINGCODE"
+					  title="Stock Quotes For DiGi"
+					  subtitle="Comparison between open, high, low and close price"
+					  type="column"
+					  axis-y-title="Stock Quotes"
+					  axis-x-title="Date"
+					  show-data-label="false"
+					  show-legend="left"
+					  zoom-type="y">Placeholder for generic chart</pigeon-chart>
+
+        <pigeon-chart query="SELECT school, COUNT(school) AS Total
+							 FROM student
+							 GROUP BY school"
+					  title="Students from Swinburne, UCTS and Sunway Group By Gender"
+					  subtitle="BICT and CS Students"
+					  type="pie"
+					  axis-y-title="Count"
+					  axis-x-title="Gender"
+					  show-data-label="false"
+					  show-legend="top"
+					  zoom-type="xy">Placeholder for generic chart</pigeon-chart>
+
+        <pigeon-chart query="SELECT name, val FROM web_marketing"
+					  title="Web Marketing"
+					  type="bar"
+					  axis-y-title="Value"
+					  axis-x-title="Category"
+					  show-data-label="false"
+					  show-legend="right"
+					  zoom-type="x">Placeholder for generic chart</pigeon-chart>
     </div>    
 </body>
 </html>

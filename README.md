@@ -23,7 +23,7 @@ If your website is running on PHP, you can just insert the "includes.php" file i
 
 Configure your MySQL hostname, username, password and the database in the "pigeon-core/configdb.php". This PHP must be configured properly in order to communicate with MySQL server.
 <br />
-![configure db](https://user-images.githubusercontent.com/26452088/36461630-8e54c350-16f9-11e8-8111-1c93bd458914.PNG)
+![configure db](https://user-images.githubusercontent.com/26452088/43495491-fdad5e3e-956a-11e8-8db5-7cd4bbe74e65.PNG)
 
 # Include pigeon-chart HTML tag
 In order to display data in different chart forms whereby on your choice, Pigeon Chart supports 6 chart types: Line, Pie, Column, Bar, Area and Spline. You are required to insert the MySQL query command to retrieve the data from mySQL database. Pigeon chart supports data visualization with 6 different SQL patterns as shown below.

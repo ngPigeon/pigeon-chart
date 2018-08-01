@@ -31,7 +31,7 @@ In order to display data in different chart forms whereby on your choice, Pigeon
 SQL Patterns
 <br />
 -SELECT 
--SELECT [x-axis], [y-axis] FROM <table>;
+-SELECT [x-axis], [y-axis] FROM *table*;
 <br />
 -SELECT [x-axis], [y-axis-series-1], [y-axis-series-2], [y-axis-series-3] … FROM *table*;
 <br />
@@ -41,7 +41,7 @@ SQL Patterns
 <br />
 -SELECT [x-axis], AGG_FUNC([y-axis-series-1]), AGG_FUNC([y-axis-series-2]), … FROM *table* GROUP BY [x-axis];
 <br />
--SELECT [x-axis-1], [x-axis-2],… , AGG_FUNC([y-axis-series-1]), AGG_FUNC([y-axis-series-2]), … FROM <table> GROUP BY [x-axis-1], [x-axis-2],…;
+-SELECT [x-axis-1], [x-axis-2],… , AGG_FUNC([y-axis-series-1]), AGG_FUNC([y-axis-series-2]), … FROM *table* GROUP BY [x-axis-1], [x-axis-2],…;
 
 <table>
     <tr>
@@ -90,7 +90,7 @@ SQL Patterns
         <td>Default value: right</td>
     </tr>
     <tr>
-        <td><strong>zoom-type/strong></td>
+        <td><strong>zoom-type</strong></td>
         <td>Decides the dimensions the user can zoom by dragging the mouse. Possible values are x, y and xy. </td>
         <td>Optional - Not applicable for pie chart</td>
     </tr>
